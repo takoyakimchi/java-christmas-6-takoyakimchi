@@ -1,6 +1,5 @@
 package christmas.event.discount;
 
-import christmas.event.Event;
 import christmas.event.WeekendChecker;
 import christmas.item.FoodType;
 import christmas.order.Order;
@@ -10,7 +9,7 @@ import java.util.Optional;
 public class WeekdayDiscount implements DiscountStrategy {
 
     @Override
-    public Optional<Event> discount(Orders orders) {
+    public Optional<DiscountEvent> discount(Orders orders) {
         int discountPrice = 0;
         for (Order order : orders.getOrders()) {
             if (order.getItem().getType() == FoodType.DESSERT) {
@@ -19,7 +18,7 @@ public class WeekdayDiscount implements DiscountStrategy {
         }
 
         if (!WeekendChecker.isWeekend(orders.getOrderDate())) {
-            return Optional.of(new Event("평일 할인", discountPrice, null));
+            return Optional.of(new DiscountEvent("평일 할인", discountPrice));
         }
         return Optional.empty();
     }

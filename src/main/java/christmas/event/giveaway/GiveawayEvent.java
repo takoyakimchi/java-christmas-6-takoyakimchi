@@ -1,17 +1,15 @@
-package christmas.event;
+package christmas.event.giveaway;
 
 import christmas.order.Order;
 import java.util.List;
 
-public class Event {
+public class GiveawayEvent {
 
     private final String description;
-    private final int discountPrice;
     private final List<Order> giveawayItems;
 
-    public Event(String description, int discountPrice, List<Order> giveawayItems) {
+    public GiveawayEvent(String description, List<Order> giveawayItems) {
         this.description = description;
-        this.discountPrice = discountPrice;
         this.giveawayItems = giveawayItems;
     }
 
@@ -19,12 +17,8 @@ public class Event {
         return description;
     }
 
-    public int getDiscountPrice() {
-        return discountPrice;
-    }
-
     public int getBenefitPrice() {
-        int benefitPrice = discountPrice;
+        int benefitPrice = 0;
         for (Order giveawayItem : giveawayItems) {
             benefitPrice += giveawayItem.getItem().getPrice() * giveawayItem.getAmount();
         }
