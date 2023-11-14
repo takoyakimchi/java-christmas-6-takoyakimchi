@@ -10,19 +10,31 @@ import java.util.List;
 
 public class InputView {
 
-    public static int readDate() {
-        System.out.println("12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)");
-        String input = Console.readLine();
-        return toInt(input, "유효하지 않은 날짜입니다. 다시 입력해 주세요.");
+    public static Orders readDate() {
+        while (true) {
+            System.out.println("12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)");
+            try {
+                String input = Console.readLine();
+                int orderDate = toInt(input, "유효하지 않은 날짜입니다. 다시 입력해 주세요.");
+                return new Orders(orderDate);
+            } catch (IllegalArgumentException e) {
+                System.out.println("[ERROR] " + e.getMessage());
+            }
+        }
     }
 
-    public static Orders readOrders(int orderDate) {
-        Orders orders = new Orders(orderDate);
-        System.out.println("주문하실 메뉴를 메뉴와 개수를 알려 주세요."
-            + "(e.g. 해산물파스타-2,레드와인-1,초코케이크-1)");
-        String input = Console.readLine();
-        orders.setOrders(toOrderList(input));
-        return orders;
+    public static void readOrders(Orders orders) {
+        while (true) {
+            System.out.println("주문하실 메뉴를 메뉴와 개수를 알려 주세요."
+                + "(e.g. 해산물파스타-2,레드와인-1,초코케이크-1)");
+            try {
+                String input = Console.readLine();
+                orders.setOrders(toOrderList(input));
+                return;
+            } catch (IllegalArgumentException e) {
+                System.out.println("[ERROR] " + e.getMessage());
+            }
+        }
     }
 
     private static List<Order> toOrderList(String input) {
