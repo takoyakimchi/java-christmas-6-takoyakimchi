@@ -1,9 +1,9 @@
 package christmas.view;
 
-import christmas.event.discount.DiscountEvent;
 import christmas.event.EventBadge;
 import christmas.event.EventConfig;
 import christmas.event.Events;
+import christmas.event.discount.DiscountEvent;
 import christmas.event.giveaway.GiveawayEvent;
 import christmas.order.Order;
 import christmas.order.Orders;
@@ -36,7 +36,7 @@ public class OutputView {
     public static void printGiveawayItem(Events events) {
         System.out.println();
         System.out.println("<증정 메뉴>");
-        for (GiveawayEvent event : events.getGiveawayEvents()   ) {
+        for (GiveawayEvent event : events.getGiveawayEvents()) {
             for (Order giveawayItem : event.getGiveawayItems()) {
                 printOrder(giveawayItem);
             }
@@ -48,6 +48,9 @@ public class OutputView {
         System.out.println("<혜택 내역>");
         for (DiscountEvent event : events.getDiscountEvents()) {
             printDiscountEvent(event);
+        }
+        for (GiveawayEvent event : events.getGiveawayEvents()) {
+            printGiveawayEvent(event);
         }
     }
 
