@@ -1,6 +1,7 @@
 package christmas.event.discount;
 
 import christmas.event.WeekendChecker;
+import christmas.event.domain.DiscountEvent;
 import christmas.item.FoodType;
 import christmas.order.Order;
 import christmas.order.Orders;

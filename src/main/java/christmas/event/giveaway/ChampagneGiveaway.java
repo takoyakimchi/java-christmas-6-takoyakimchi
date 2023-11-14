@@ -1,5 +1,6 @@
 package christmas.event.giveaway;
 
+import christmas.event.domain.GiveawayEvent;
 import christmas.item.FoodType;
 import christmas.item.Item;
 import christmas.order.Order;

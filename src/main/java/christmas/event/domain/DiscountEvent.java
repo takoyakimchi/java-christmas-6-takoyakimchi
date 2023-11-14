@@ -1,4 +1,4 @@
-package christmas.event.discount;
+package christmas.event.domain;
 
 public class DiscountEvent {
 

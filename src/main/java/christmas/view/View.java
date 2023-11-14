@@ -12,7 +12,7 @@ import static christmas.view.OutputView.printPayPrice;
 import static christmas.view.OutputView.printPriceBeforeDiscount;
 import static christmas.view.OutputView.printTotalBenefitPrice;
 
-import christmas.event.Events;
+import christmas.event.domain.Events;
 import christmas.order.Orders;
 
 public class View {

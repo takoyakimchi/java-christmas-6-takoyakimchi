@@ -2,9 +2,9 @@ package christmas.view;
 
 import christmas.event.EventBadge;
 import christmas.event.EventConfig;
-import christmas.event.Events;
-import christmas.event.discount.DiscountEvent;
-import christmas.event.giveaway.GiveawayEvent;
+import christmas.event.domain.Events;
+import christmas.event.domain.DiscountEvent;
+import christmas.event.domain.GiveawayEvent;
 import christmas.order.Order;
 import christmas.order.Orders;
 
