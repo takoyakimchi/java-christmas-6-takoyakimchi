@@ -1,4 +1,4 @@
-package christmas.domain;
+package christmas.item;
 
 public class Item {
     private String name;
