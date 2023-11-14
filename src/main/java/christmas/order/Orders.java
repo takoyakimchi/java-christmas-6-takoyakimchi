@@ -1,6 +1,8 @@
 package christmas.order;
 
+import christmas.db.ItemData;
 import christmas.item.FoodType;
+import christmas.item.Item;
 import java.util.List;
 
 public class Orders {
@@ -42,8 +44,6 @@ public class Orders {
 
     private void validateOrders(List<Order> orders) {
         validateOrderCount(orders);
-        // TODO
-        // validateFoodNames(orders);
         validateBeverage(orders);
     }
 
