@@ -2,8 +2,6 @@ package christmas.event.domain;
 
 import christmas.event.EventConfig;
 import christmas.event.discount.DiscountStrategy;
-import christmas.event.domain.DiscountEvent;
-import christmas.event.domain.GiveawayEvent;
 import christmas.event.giveaway.GiveawayStrategy;
 import christmas.order.Orders;
 import java.util.ArrayList;
