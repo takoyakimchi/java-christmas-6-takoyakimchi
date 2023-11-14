@@ -41,6 +41,9 @@ public class OutputView {
                 printOrder(giveawayItem);
             }
         }
+        if (events.getGiveawayEvents().isEmpty()) {
+            System.out.println("없음");
+        }
     }
 
     public static void printBenefitList(Events events) {
@@ -52,12 +55,15 @@ public class OutputView {
         for (GiveawayEvent event : events.getGiveawayEvents()) {
             printGiveawayEvent(event);
         }
+        if (events.getDiscountEvents().isEmpty() && events.getGiveawayEvents().isEmpty()) {
+            System.out.println("없음");
+        }
     }
 
     public static void printTotalBenefitPrice(Events events) {
         System.out.println();
         System.out.println("<총혜택 금액>");
-        System.out.printf("-%,d원\n", events.getTotalBenefitPrice());
+        System.out.printf("%,d원\n", events.getTotalBenefitPrice() * (-1));
     }
 
     public static void printPayPrice(Orders orders, Events events) {
@@ -81,11 +87,11 @@ public class OutputView {
 
     private static void printDiscountEvent(DiscountEvent event) {
         System.out.print(event.getDescription() + ": ");
-        System.out.printf("-%,d원\n", event.getDiscountPrice());
+        System.out.printf("%,d원\n", event.getDiscountPrice() * (-1));
     }
 
     private static void printGiveawayEvent(GiveawayEvent event) {
         System.out.print(event.getDescription() + ": ");
-        System.out.printf("-%,d원\n", event.getBenefitPrice());
+        System.out.printf("%,d원\n", event.getBenefitPrice() * (-1));
     }
 }
