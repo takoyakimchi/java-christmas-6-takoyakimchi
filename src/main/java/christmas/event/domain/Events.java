@@ -9,8 +9,8 @@ import java.util.List;
 
 public class Events {
 
-    private List<DiscountEvent> discountEvents = new ArrayList<>();
-    private List<GiveawayEvent> giveawayEvents = new ArrayList<>();
+    private final List<DiscountEvent> discountEvents = new ArrayList<>();
+    private final List<GiveawayEvent> giveawayEvents = new ArrayList<>();
 
     public Events(Orders orders) {
         if (orders.getTotalPrice() >= 10000) {
