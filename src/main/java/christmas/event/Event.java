@@ -23,6 +23,14 @@ public class Event {
         return discountPrice;
     }
 
+    public int getBenefitPrice() {
+        int benefitPrice = discountPrice;
+        for (Order giveawayItem : giveawayItems) {
+            benefitPrice += giveawayItem.getItem().getPrice() * giveawayItem.getAmount();
+        }
+        return benefitPrice;
+    }
+
     public List<Order> getGiveawayItems() {
         return giveawayItems;
     }

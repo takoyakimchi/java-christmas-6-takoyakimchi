@@ -35,12 +35,9 @@ public class Events {
     }
 
     public int getTotalBenefitPrice() {
-        int totalBenefitPrice = getTotalDiscountPrice();
+        int totalBenefitPrice = 0;
         for (Event event : events) {
-            List<Order> giveawayItems = event.getGiveawayItems();
-            for (Order giveawayItem : giveawayItems) {
-                totalBenefitPrice += giveawayItem.getItem().getPrice() * giveawayItem.getAmount();
-            }
+            totalBenefitPrice += event.getBenefitPrice();
         }
         return totalBenefitPrice;
     }
