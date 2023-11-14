@@ -2,9 +2,9 @@ package christmas.item;
 
 public class Item {
 
-    private String name;
-    private int price;
-    private FoodType type;
+    private final String name;
+    private final int price;
+    private final FoodType type;
 
     public Item(String name, int price, FoodType type) {
         this.name = name;
