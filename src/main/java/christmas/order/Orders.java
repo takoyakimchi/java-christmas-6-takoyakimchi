@@ -1,8 +1,6 @@
 package christmas.order;
 
-import christmas.db.ItemData;
 import christmas.item.FoodType;
-import christmas.item.Item;
 import java.util.List;
 
 public class Orders {

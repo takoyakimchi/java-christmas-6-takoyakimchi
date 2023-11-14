@@ -1,8 +1,5 @@
 package christmas.event.discount;
 
-import christmas.order.Order;
-import java.util.List;
-
 public class DiscountEvent {
 
     private final String description;

@@ -1,12 +1,9 @@
 package christmas.db;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import christmas.item.FoodType;
 import christmas.item.Item;
 import java.util.Optional;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class ItemRepositoryTest {
