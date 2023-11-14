@@ -9,6 +9,10 @@ import christmas.order.Orders;
 
 public class OutputView {
 
+    public static void printGreeting() {
+        System.out.println("안녕하세요! 우테코 식당 " + EventConfig.EVENT_MONTH + "월 이벤트 플래너입니다.");
+    }
+
     public static void printEventPreviewMessage(int orderDate) {
         System.out.println(
             EventConfig.EVENT_MONTH + "월 " + orderDate + "일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!");
