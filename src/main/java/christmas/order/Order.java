@@ -7,6 +7,11 @@ public class Order {
     private Item item;
     private int amount;
 
+    public Order(Item item, int amount) {
+        this.item = item;
+        this.amount = amount;
+    }
+
     public Item getItem() {
         return item;
     }

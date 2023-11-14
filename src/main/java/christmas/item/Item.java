@@ -6,6 +6,12 @@ public class Item {
     private int price;
     private FoodType type;
 
+    public Item(String name, int price, FoodType type) {
+        this.name = name;
+        this.price = price;
+        this.type = type;
+    }
+
     public String getName() {
         return name;
     }
