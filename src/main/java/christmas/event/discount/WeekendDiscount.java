@@ -1,6 +1,6 @@
 package christmas.event.discount;
 
-import christmas.event.WeekendChecker;
+import christmas.event.CalendarChecker;
 import christmas.event.domain.DiscountEvent;
 import christmas.item.FoodType;
 import christmas.order.Order;
@@ -18,7 +18,7 @@ public class WeekendDiscount implements DiscountStrategy {
             }
         }
 
-        if (WeekendChecker.isWeekend(orders.getOrderDate())) {
+        if (CalendarChecker.isWeekend(orders.getOrderDate())) {
             return Optional.of(new DiscountEvent("주말 할인", discountPrice));
         }
         return Optional.empty();
