@@ -1,6 +1,7 @@
 package christmas.event;
 
-import static christmas.event.EventConst.*;
+import static christmas.event.EventConst.EVENT_MONTH;
+import static christmas.event.EventConst.EVENT_YEAR;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -15,7 +16,9 @@ public class CalendarChecker {
     }
 
     public static int getLastDayOfMonth() {
-        return YearMonth.of(EVENT_YEAR, EVENT_MONTH).atEndOfMonth().getDayOfMonth();
+        return YearMonth.of(EVENT_YEAR, EVENT_MONTH)
+            .atEndOfMonth()
+            .getDayOfMonth();
     }
 }
 
