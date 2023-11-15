@@ -10,6 +10,16 @@ import christmas.order.Orders;
 
 public class OutputView {
 
+    public static void printResult(Orders orders, Events events) {
+        printMenu(orders);
+        printPriceBeforeDiscount(orders);
+        printGiveawayItem(events);
+        printBenefitList(events);
+        printTotalBenefitPrice(events);
+        printPayPrice(orders, events);
+        printEventBadge(events);
+    }
+
     public static void printGreeting() {
         System.out.println("안녕하세요! 우테코 식당 " + EventConfig.EVENT_MONTH + "월 이벤트 플래너입니다.");
     }
@@ -19,7 +29,7 @@ public class OutputView {
             EventConfig.EVENT_MONTH + "월 " + orderDate + "일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!");
     }
 
-    public static void printMenu(Orders orders) {
+    private static void printMenu(Orders orders) {
         System.out.println();
         System.out.println("<주문 메뉴>");
         for (Order order : orders.getOrders()) {
@@ -27,13 +37,13 @@ public class OutputView {
         }
     }
 
-    public static void printPriceBeforeDiscount(Orders orders) {
+    private static void printPriceBeforeDiscount(Orders orders) {
         System.out.println();
         System.out.println("<할인 전 총주문 금액>");
         System.out.printf("%,d원\n", orders.getTotalPrice());
     }
 
-    public static void printGiveawayItem(Events events) {
+    private static void printGiveawayItem(Events events) {
         System.out.println();
         System.out.println("<증정 메뉴>");
         for (GiveawayEvent event : events.getGiveawayEvents()) {
@@ -46,7 +56,7 @@ public class OutputView {
         }
     }
 
-    public static void printBenefitList(Events events) {
+    private static void printBenefitList(Events events) {
         System.out.println();
         System.out.println("<혜택 내역>");
         for (DiscountEvent event : events.getDiscountEvents()) {
@@ -60,20 +70,20 @@ public class OutputView {
         }
     }
 
-    public static void printTotalBenefitPrice(Events events) {
+    private static void printTotalBenefitPrice(Events events) {
         System.out.println();
         System.out.println("<총혜택 금액>");
         System.out.printf("%,d원\n", events.getTotalBenefitPrice() * (-1));
     }
 
-    public static void printPayPrice(Orders orders, Events events) {
+    private static void printPayPrice(Orders orders, Events events) {
         int payPrice = orders.getTotalPrice() - events.getTotalDiscountPrice();
         System.out.println();
         System.out.println("<할인 후 예상 결제 금액>");
         System.out.printf("%,d원\n", payPrice);
     }
 
-    public static void printEventBadge(Events events) {
+    private static void printEventBadge(Events events) {
         EventBadge badge = EventBadge.getEventBadge(events.getTotalBenefitPrice());
         System.out.println();
         System.out.println("<12월 이벤트 배지>");
