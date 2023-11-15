@@ -19,9 +19,9 @@ public class WeekdayDiscount implements DiscountStrategy {
             }
         }
 
-        if (!CalendarChecker.isWeekend(orders.getOrderDate())) {
-            return Optional.of(new DiscountEvent("평일 할인", discountPrice));
+        if (CalendarChecker.isWeekend(orders.getOrderDate()) || discountPrice == 0) {
+            return Optional.empty();
         }
-        return Optional.empty();
+        return Optional.of(new DiscountEvent("평일 할인", discountPrice));
     }
 }
