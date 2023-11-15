@@ -17,15 +17,15 @@ public class GiveawayEvent {
         return description;
     }
 
+    public ItemMap getGiveawayItemMap() {
+        return giveawayItemMap;
+    }
+
     public int getBenefitPrice() {
         int benefitPrice = 0;
         for (Item item : giveawayItemMap.getKeySet()) {
             benefitPrice += item.getPrice() * giveawayItemMap.getAmount(item);
         }
         return benefitPrice;
-    }
-
-    public ItemMap getGiveawayItemMap() {
-        return giveawayItemMap;
     }
 }
