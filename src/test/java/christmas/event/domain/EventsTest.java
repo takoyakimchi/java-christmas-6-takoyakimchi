@@ -1,5 +1,7 @@
 package christmas.event.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import christmas.db.ItemRepository;
 import christmas.item.Item;
 import christmas.order.OrderDate;
@@ -7,7 +9,6 @@ import christmas.order.OrderItemMap;
 import christmas.order.Orders;
 import java.util.HashMap;
 import java.util.Map;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -40,14 +41,14 @@ class EventsTest {
     @Test
     @DisplayName("전체 할인금액: 디데이 + 평일 + 특별")
     void getTotalDiscountPrice() {
-        Assertions.assertThat(events.getTotalDiscountPrice())
+        assertThat(events.getTotalDiscountPrice())
             .isEqualTo(3400 + 2023 * 5 + 1000);
     }
 
     @Test
     @DisplayName("전체 혜택금액: 디데이 + 평일 + 특별 + 증정품")
     void getTotalBenefitPrice() {
-        Assertions.assertThat(events.getTotalBenefitPrice())
+        assertThat(events.getTotalBenefitPrice())
             .isEqualTo(3400 + 2023 * 5 + 1000 + 25000);
     }
 }
