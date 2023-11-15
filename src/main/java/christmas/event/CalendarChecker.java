@@ -10,9 +10,13 @@ import java.time.YearMonth;
 public class CalendarChecker {
 
     public static boolean isWeekend(int orderDate) {
-        LocalDate date = LocalDate.of(EVENT_YEAR, EVENT_MONTH, orderDate);
-        DayOfWeek dayOfWeek = date.getDayOfWeek();
+        DayOfWeek dayOfWeek = getDayOfWeek(orderDate);
         return dayOfWeek == DayOfWeek.FRIDAY || dayOfWeek == DayOfWeek.SATURDAY;
+    }
+
+    private static DayOfWeek getDayOfWeek(int orderDate) {
+        LocalDate date = LocalDate.of(EVENT_YEAR, EVENT_MONTH, orderDate);
+        return date.getDayOfWeek();
     }
 
     public static int getLastDayOfMonth() {
