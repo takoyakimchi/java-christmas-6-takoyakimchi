@@ -1,16 +1,16 @@
 package christmas.event.domain;
 
-import christmas.order.Order;
-import java.util.List;
+import christmas.item.Item;
+import christmas.item.ItemMap;
 
 public class GiveawayEvent {
 
     private final String description;
-    private final List<Order> giveawayItems;
+    private final ItemMap giveawayItemMap;
 
-    public GiveawayEvent(String description, List<Order> giveawayItems) {
+    public GiveawayEvent(String description, ItemMap giveawayItems) {
         this.description = description;
-        this.giveawayItems = giveawayItems;
+        this.giveawayItemMap = giveawayItems;
     }
 
     public String getDescription() {
@@ -19,13 +19,13 @@ public class GiveawayEvent {
 
     public int getBenefitPrice() {
         int benefitPrice = 0;
-        for (Order giveawayItem : giveawayItems) {
-            benefitPrice += giveawayItem.getItem().getPrice() * giveawayItem.getAmount();
+        for (Item item : giveawayItemMap.getKeySet()) {
+            benefitPrice += item.getPrice() * giveawayItemMap.getAmount(item);
         }
         return benefitPrice;
     }
 
-    public List<Order> getGiveawayItems() {
-        return giveawayItems;
+    public ItemMap getGiveawayItemMap() {
+        return giveawayItemMap;
     }
 }

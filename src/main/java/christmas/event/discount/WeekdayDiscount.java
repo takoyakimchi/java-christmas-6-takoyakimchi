@@ -4,9 +4,7 @@ import christmas.event.CalendarChecker;
 import christmas.event.domain.DiscountEvent;
 import christmas.item.FoodType;
 import christmas.item.Item;
-import christmas.order.Order;
 import christmas.order.Orders;
-import java.util.Map;
 import java.util.Optional;
 
 public class WeekdayDiscount implements DiscountStrategy {
@@ -14,11 +12,10 @@ public class WeekdayDiscount implements DiscountStrategy {
     @Override
     public Optional<DiscountEvent> discount(Orders orders) {
         int discountPrice = 0;
-        Map<Item, Integer> orderMap = orders.getOrders();
 
-        for (Item item : orderMap.keySet()) {
+        for (Item item : orders.getItemMap().getKeySet()) {
             if (item.getType() == FoodType.DESSERT) {
-                discountPrice += 2023 * orderMap.get(item);
+                discountPrice += 2023 * orders.getItemMap().getAmount(item);
             }
         }
 

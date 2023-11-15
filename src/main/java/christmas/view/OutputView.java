@@ -7,7 +7,7 @@ import christmas.event.domain.DiscountEvent;
 import christmas.event.domain.Events;
 import christmas.event.domain.GiveawayEvent;
 import christmas.item.Item;
-import christmas.order.Order;
+import christmas.item.ItemMap;
 import christmas.order.Orders;
 
 public class OutputView {
@@ -34,10 +34,7 @@ public class OutputView {
     private static void printMenu(Orders orders) {
         System.out.println();
         System.out.println("<주문 메뉴>");
-        for (Item item : orders.getOrders().keySet()) {
-            System.out.print(item.getName() + ": ");
-            System.out.println(orders.getOrders().get(item));
-        }
+        printItemMap(orders.getItemMap());
     }
 
     private static void printPriceBeforeDiscount(Orders orders) {
@@ -50,9 +47,7 @@ public class OutputView {
         System.out.println();
         System.out.println("<증정 메뉴>");
         for (GiveawayEvent event : events.getGiveawayEvents()) {
-            for (Order giveawayItem : event.getGiveawayItems()) {
-                printOrder(giveawayItem);
-            }
+            printItemMap(event.getGiveawayItemMap());
         }
         if (events.getGiveawayEvents().isEmpty()) {
             System.out.println("없음");
@@ -93,9 +88,10 @@ public class OutputView {
         System.out.println(badge.getName());
     }
 
-    private static void printOrder(Order order) {
-        System.out.print(order.getItem().getName() + " ");
-        System.out.println(order.getAmount() + "개");
+    private static void printItemMap(ItemMap itemMap) {
+        for (Item item : itemMap.getKeySet()) {
+            System.out.println(item.getName() + ": " + itemMap.getAmount(item) + "개");
+        }
     }
 
     private static void printDiscountEvent(DiscountEvent event) {

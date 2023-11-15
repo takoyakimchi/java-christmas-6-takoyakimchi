@@ -7,10 +7,9 @@ import static christmas.view.OutputView.printGreeting;
 import static christmas.view.OutputView.printResult;
 
 import christmas.event.domain.Events;
-import christmas.item.Item;
+import christmas.item.OrderItemMap;
 import christmas.order.OrderDate;
 import christmas.order.Orders;
-import java.util.Map;
 
 public class Controller {
 
@@ -18,9 +17,9 @@ public class Controller {
         printGreeting();
 
         OrderDate orderDate = readDate();
-        Map<Item, Integer> orderMap = readOrders();
+        OrderItemMap itemMap = readOrders();
 
-        Orders orders = new Orders(orderDate, orderMap);
+        Orders orders = new Orders(orderDate, itemMap);
         Events events = new Events(orders);
 
         printEventPreviewMessage(orders.getOrderDate());

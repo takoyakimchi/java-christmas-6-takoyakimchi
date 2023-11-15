@@ -5,12 +5,9 @@ import static christmas.event.EventConst.EVENT_MONTH;
 import camp.nextstep.edu.missionutils.Console;
 import christmas.db.ItemRepository;
 import christmas.item.Item;
-import christmas.order.Order;
+import christmas.item.OrderItemMap;
 import christmas.order.OrderDate;
-import christmas.order.Orders;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class InputView {
@@ -20,21 +17,21 @@ public class InputView {
             System.out.println(EVENT_MONTH + "월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)");
             try {
                 String input = Console.readLine();
-                int orderDate = convertToInt(input, "유효하지 않은 날짜입니다. 다시 입력해 주세요.");
-                return new OrderDate(orderDate);
+                return new OrderDate(
+                    convertToInt(input, "유효하지 않은 날짜입니다. 다시 입력해 주세요."));
             } catch (IllegalArgumentException e) {
                 System.out.println("[ERROR] " + e.getMessage());
             }
         }
     }
 
-    public static Map<Item, Integer> readOrders() {
+    public static OrderItemMap readOrders() {
         while (true) {
             System.out.println("주문하실 메뉴를 메뉴와 개수를 알려 주세요."
                 + "(e.g. 해산물파스타-2,레드와인-1,초코케이크-1)");
             try {
                 String input = Console.readLine();
-                return convertToMap(input);
+                return new OrderItemMap(convertToMap(input));
             } catch (IllegalArgumentException e) {
                 System.out.println("[ERROR] " + e.getMessage());
             }
