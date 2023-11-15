@@ -28,7 +28,6 @@ public class InputValidator {
         List<String> foodNames = new ArrayList<>();
 
         for (String orderString : input.split(",")) {
-            System.out.println("orderString = " + orderString);
             foodNames.add(orderString.split("-")[0]);
         }
 
