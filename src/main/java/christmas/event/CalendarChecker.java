@@ -14,7 +14,7 @@ public class CalendarChecker {
         return dayOfWeek == DayOfWeek.FRIDAY || dayOfWeek == DayOfWeek.SATURDAY;
     }
 
-    private static DayOfWeek getDayOfWeek(int orderDate) {
+    public static DayOfWeek getDayOfWeek(int orderDate) {
         LocalDate date = LocalDate.of(EVENT_YEAR, EVENT_MONTH, orderDate);
         return date.getDayOfWeek();
     }
