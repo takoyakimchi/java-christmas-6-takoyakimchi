@@ -13,30 +13,17 @@ import java.util.Map;
 public class InputView {
 
     public static OrderDate readDate() {
-        while (true) {
-            System.out.println(EVENT_MONTH + "월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)");
-            try {
-                String input = Console.readLine();
-                InputValidator.validateDate(input);
-                return new OrderDate(Integer.parseInt(input));
-            } catch (IllegalArgumentException e) {
-                System.out.println("[ERROR] " + e.getMessage());
-            }
-        }
+        System.out.println(EVENT_MONTH + "월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)");
+        String input = Console.readLine();
+        InputValidator.validateDate(input);
+        return new OrderDate(Integer.parseInt(input));
     }
 
     public static OrderItemMap readOrders() {
-        while (true) {
-            System.out.println("주문하실 메뉴를 메뉴와 개수를 알려 주세요."
-                + "(e.g. 해산물파스타-2,레드와인-1,초코케이크-1)");
-            try {
-                String input = Console.readLine();
-                InputValidator.validateOrders(input);
-                return new OrderItemMap(convertToMap(input));
-            } catch (IllegalArgumentException e) {
-                System.out.println("[ERROR] " + e.getMessage());
-            }
-        }
+        System.out.println("주문하실 메뉴를 메뉴와 개수를 알려 주세요. (e.g. 해산물파스타-2,레드와인-1,초코케이크-1)");
+        String input = Console.readLine();
+        InputValidator.validateOrders(input);
+        return new OrderItemMap(convertToMap(input));
     }
 
     private static Map<Item, Integer> convertToMap(String input) {
