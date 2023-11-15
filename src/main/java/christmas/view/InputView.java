@@ -46,7 +46,7 @@ public class InputView {
                 throw new IllegalArgumentException("유효하지 않은 주문입니다. 다시 입력해 주세요.");
             }
             Item item = ItemRepository.findByName(itemInput[0])
-                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 메뉴입니다."));
+                .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 주문입니다. 다시 입력해 주세요."));
             int amount = convertToInt(itemInput[1], "유효하지 않은 주문입니다. 다시 입력해 주세요.");
             orderMap.put(item, amount);
         }
