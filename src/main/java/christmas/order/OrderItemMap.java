@@ -1,7 +1,9 @@
-package christmas.item;
+package christmas.order;
 
 import static christmas.item.FoodType.BEVERAGE;
 
+import christmas.item.Item;
+import christmas.item.ItemMap;
 import java.util.Map;
 
 public class OrderItemMap extends ItemMap {

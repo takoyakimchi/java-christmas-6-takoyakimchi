@@ -7,7 +7,7 @@ import static christmas.view.OutputView.printGreeting;
 import static christmas.view.OutputView.printResult;
 
 import christmas.event.domain.Events;
-import christmas.item.OrderItemMap;
+import christmas.order.OrderItemMap;
 import christmas.order.OrderDate;
 import christmas.order.Orders;
 
