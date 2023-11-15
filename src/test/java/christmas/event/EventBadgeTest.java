@@ -1,11 +1,13 @@
 package christmas.event;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class EventBadgeTest {
 
     @Test
+    @DisplayName("이벤트 배지 범위 테스트")
     void getEventBadge() {
         EventBadge eventBadge1 = EventBadge.getEventBadge(20000);
         EventBadge eventBadge2 = EventBadge.getEventBadge(10000);
