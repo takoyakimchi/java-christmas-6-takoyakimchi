@@ -6,6 +6,7 @@ import christmas.event.EventBadge;
 import christmas.event.domain.DiscountEvent;
 import christmas.event.domain.Events;
 import christmas.event.domain.GiveawayEvent;
+import christmas.item.Item;
 import christmas.order.Order;
 import christmas.order.Orders;
 
@@ -33,8 +34,9 @@ public class OutputView {
     private static void printMenu(Orders orders) {
         System.out.println();
         System.out.println("<주문 메뉴>");
-        for (Order order : orders.getOrders()) {
-            printOrder(order);
+        for (Item item : orders.getOrders().keySet()) {
+            System.out.print(item.getName() + ": ");
+            System.out.println(orders.getOrders().get(item));
         }
     }
 

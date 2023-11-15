@@ -1,43 +1,34 @@
 package christmas.order;
 
 import christmas.item.FoodType;
+import christmas.item.Item;
 import java.util.List;
+import java.util.Map;
 
 public class Orders {
 
-    private final int orderDate;
-    private List<Order> orders;
+    private final OrderDate orderDate;
+    private final Map<Item, Integer> orders;
 
-    public Orders(int orderDate) {
-        validateOrderDate(orderDate);
+    public Orders(OrderDate orderDate, Map<Item, Integer> orders) {
         this.orderDate = orderDate;
-    }
-
-    public void setOrders(List<Order> orders) {
-        validateOrders(orders);
         this.orders = orders;
     }
 
     public int getOrderDate() {
-        return orderDate;
+        return orderDate.getDate();
     }
 
-    public List<Order> getOrders() {
+    public Map<Item, Integer> getOrders() {
         return orders;
     }
 
     public int getTotalPrice() {
         int totalPrice = 0;
-        for (Order order : orders) {
-            totalPrice += order.getItem().getPrice() * order.getAmount();
+        for (Item item : orders.keySet()) {
+            totalPrice += item.getPrice() * orders.get(item);
         }
         return totalPrice;
-    }
-
-    private void validateOrderDate(int orderDate) {
-        if (orderDate < 1 || orderDate > 31) {
-            throw new IllegalArgumentException("1에서 31까지의 숫자를 입력해 주세요.");
-        }
     }
 
     private void validateOrders(List<Order> orders) {
