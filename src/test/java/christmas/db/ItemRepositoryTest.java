@@ -13,8 +13,8 @@ class ItemRepositoryTest {
     @DisplayName("DB에서 아이템 찾기 성공")
     void findByName() {
         String foodName = "양송이수프";
-        Optional<Item> foundItem = ItemRepository.findByName(foodName);
-        assertThat(foundItem.get().getName()).isEqualTo(foodName);
+        Item item = ItemRepository.findByName(foodName).orElseThrow(RuntimeException::new);
+        assertThat(item.getName()).isEqualTo(foodName);
     }
 
     @Test
