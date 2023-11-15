@@ -1,9 +1,10 @@
 package christmas.view;
 
+import static christmas.event.EventConst.EVENT_MONTH;
+
 import christmas.event.EventBadge;
-import christmas.event.EventConfig;
-import christmas.event.domain.Events;
 import christmas.event.domain.DiscountEvent;
+import christmas.event.domain.Events;
 import christmas.event.domain.GiveawayEvent;
 import christmas.order.Order;
 import christmas.order.Orders;
@@ -21,12 +22,12 @@ public class OutputView {
     }
 
     public static void printGreeting() {
-        System.out.println("안녕하세요! 우테코 식당 " + EventConfig.EVENT_MONTH + "월 이벤트 플래너입니다.");
+        System.out.println("안녕하세요! 우테코 식당 " + EVENT_MONTH + "월 이벤트 플래너입니다.");
     }
 
     public static void printEventPreviewMessage(int orderDate) {
         System.out.println(
-            EventConfig.EVENT_MONTH + "월 " + orderDate + "일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!");
+            EVENT_MONTH + "월 " + orderDate + "일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!");
     }
 
     private static void printMenu(Orders orders) {
@@ -86,7 +87,7 @@ public class OutputView {
     private static void printEventBadge(Events events) {
         EventBadge badge = EventBadge.getEventBadge(events.getTotalBenefitPrice());
         System.out.println();
-        System.out.println("<12월 이벤트 배지>");
+        System.out.println("<" + EVENT_MONTH + "월 이벤트 배지>");
         System.out.println(badge.getName());
     }
 

@@ -1,6 +1,6 @@
 package christmas.event;
 
-import static christmas.event.EventConfig.*;
+import static christmas.event.EventConst.*;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
