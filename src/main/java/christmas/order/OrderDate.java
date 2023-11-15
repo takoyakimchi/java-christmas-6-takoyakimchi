@@ -1,6 +1,6 @@
 package christmas.order;
 
-import static christmas.event.EventConst.LAST_DAY_OF_EVENT_MONTH;
+import christmas.event.CalendarChecker;
 
 public class OrderDate {
 
@@ -16,7 +16,7 @@ public class OrderDate {
     }
 
     private void validate(int date) {
-        if (date < 1 || date > LAST_DAY_OF_EVENT_MONTH) {
+        if (date < 1 || date > CalendarChecker.getLastDayOfMonth()) {
             throw new IllegalArgumentException("유효하지 않은 날짜입니다. 다시 입력해 주세요.");
         }
     }
