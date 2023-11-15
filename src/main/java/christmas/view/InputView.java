@@ -15,7 +15,7 @@ public class InputView {
             System.out.println("12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)");
             try {
                 String input = Console.readLine();
-                int orderDate = toInt(input, "유효하지 않은 날짜입니다. 다시 입력해 주세요.");
+                int orderDate = convertToInt(input, "유효하지 않은 날짜입니다. 다시 입력해 주세요.");
                 return new Orders(orderDate);
             } catch (IllegalArgumentException e) {
                 System.out.println("[ERROR] " + e.getMessage());
@@ -29,7 +29,7 @@ public class InputView {
                 + "(e.g. 해산물파스타-2,레드와인-1,초코케이크-1)");
             try {
                 String input = Console.readLine();
-                orders.setOrders(toOrderList(input));
+                orders.setOrders(convertToOrderList(input));
                 return;
             } catch (IllegalArgumentException e) {
                 System.out.println("[ERROR] " + e.getMessage());
@@ -37,7 +37,7 @@ public class InputView {
         }
     }
 
-    private static List<Order> toOrderList(String input) {
+    private static List<Order> convertToOrderList(String input) {
         List<Order> orderList = new ArrayList<>();
         for (String orderInput : input.split(",")) {
             String[] itemInput = orderInput.split("-");
@@ -46,13 +46,13 @@ public class InputView {
             }
             Item item = ItemRepository.findByName(itemInput[0])
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 메뉴입니다."));
-            int amount = toInt(itemInput[1], "유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            int amount = convertToInt(itemInput[1], "유효하지 않은 주문입니다. 다시 입력해 주세요.");
             orderList.add(new Order(item, amount));
         }
         return orderList;
     }
 
-    private static int toInt(String input, String errorMessage) {
+    private static int convertToInt(String input, String errorMessage) {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
