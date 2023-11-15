@@ -14,8 +14,17 @@ public class OrderItemMap extends ItemMap {
     }
 
     private void validate(Map<Item, Integer> map) {
+        validateCount(map);
         validateOnlyBeverage(map);
         validateMaxAmount(map);
+    }
+
+    private void validateCount(Map<Item, Integer> map) {
+        for (Item item : map.keySet()) {
+            if (map.get(item) <= 0) {
+                throw new IllegalArgumentException("유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            }
+        }
     }
 
     private void validateOnlyBeverage(Map<Item, Integer> map) {
@@ -27,7 +36,7 @@ public class OrderItemMap extends ItemMap {
         }
 
         if (beverageCount == map.size()) {
-            throw new IllegalArgumentException("음료만 주문할 수 없습니다.");
+            throw new IllegalArgumentException("유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
 
@@ -37,7 +46,7 @@ public class OrderItemMap extends ItemMap {
             amount += map.get(item);
         }
         if (amount > 20) {
-            throw new IllegalArgumentException("최대 20개까지 주문할 수 있습니다.");
+            throw new IllegalArgumentException("유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
 }
