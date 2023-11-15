@@ -16,7 +16,6 @@ public class OrderDate {
     }
 
     private void validate(int date) {
-
         if (date < 1 || date > LAST_DAY_OF_EVENT_MONTH) {
             throw new IllegalArgumentException(
                 "1부터 " + LAST_DAY_OF_EVENT_MONTH + "까지의 숫자를 입력해 주세요.");
